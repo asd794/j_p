@@ -7,3 +7,4 @@ git add .
 git commit -m "??"
 
 git remote add orgin git@github.com:asd794/jinshi_practice.git
+git push origin main
