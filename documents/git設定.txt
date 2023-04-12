@@ -1,0 +1,9 @@
+git config --global user.name "Your Name"
+git config --global user.email you@example.com
+git config --list
+
+git init
+git add .
+git commit -m "??"
+
+git remote add orgin git@github.com:asd794/jinshi_practice.git
