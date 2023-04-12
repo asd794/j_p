@@ -1,0 +1,17 @@
+vim /etc/apt/sources.list.d/nginx.list
+    deb https://nginx.org/packages/ubuntu/ jammy nginx
+    deb-src https://nginx.org/packages/ubuntu/ jammy nginx
+apt update
+    出現以下錯誤
+      The following signatures couldn't be verified because the public key is not available: NO_PUBKEY ABF5BD827BD9BF62  
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 你看到的PUBKEY(ABF5BD827BD9BF62)
+apt update
+apt install nginx
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+systemctl stop nginx
+apt --purge remove nginx
+apt autormove
+dpkg --get-selections | grep nginx
+apt --purge remove *nginx*
+dpkg --get-selections | grep nginx

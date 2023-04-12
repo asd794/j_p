@@ -1,0 +1,138 @@
+[
+
+  {
+    "labels": {
+      "platform": "88CN-DC-SERVER"
+    },
+    "targets": [
+      "dcmain.kvbprime.com:33456",
+      "dcmain-jp.kvbprimemtdc.com:33456",
+      "dhk3.kvbprimemtdc.com:33456",
+      "djp3.kvbprimemtdc.com:33456"
+    ]
+  },
+
+{
+    "labels": {
+      "platform": "88CN-SH-DC"
+    },
+    "targets": [
+      "ali88hk-live.kvbprimemtdc.com:33459",
+      "dcmain--jp.kvbprimemtdc.com:33458",
+      "ali88hz-live.kvbprimemtdc.com:33465",
+      "ali88kr-live.kvbprimemtdc.com:33467",
+      "ali88sg-live.kvbprimemtdc.com:33468",
+      "ali88bj-live.kvbprimemtdc.com:33469",
+      "ali88cd-live.kvbprimemtdc.com:33471",
+      "ali88zjk-live.kvbprimemtdc.com:33472",
+      "ali88sz-live.kvbprimemtdc.com:33473",
+      "iwscn2.kvbprimemtdc.com:33474"
+    ]
+  },
+
+  {
+    "labels": {
+      "platform": "88UK-DC-SERVER"
+    },
+    "targets": [
+      "dc.kvbprimemt.co.uk:33456"
+    ]
+  },
+
+ {
+    "labels": {
+      "platform": "88UK-UK-DC"
+    },
+    "targets": [
+      "gcpdc.kvbprimemt.co.uk:33459",
+      "alieip62.kvbprimemt.co.uk:33462",
+      "alieip62sg.kvbprimemt.co.uk:33458"
+     ]
+  },
+
+ {
+    "labels": {
+      "platform": "50-DC-SERVER"
+    },
+    "targets": [
+      "dcmain.newsolid.com:33456",
+      "dchkgcp2.newsolid.com:33456"
+    ]
+  },
+
+ {
+    "labels": {
+      "platform": "50-BJ-DC"
+    },
+    "targets": [
+      "alieip50kr.newsolid.com:33456",
+      "alieip50.newsolid.com:33459",
+      "alieip50sz.newsolid.com:33460"
+ ]
+  },
+
+{
+    "labels": {
+      "platform": "88CN-Demo-DC-SERVER"
+    },
+    "targets": [
+      "dhk4.kvbprimemtdc.com:33463",
+      "demodc.kvbprimemtdc.com:33457",
+      "dcmain-jp.kvbprimemtdc.com:33464"
+        ]
+  },
+
+{
+    "labels": {
+      "platform": "88CN-Demo-SH-DC"
+    },
+    "targets": [
+      "GCPhk4-demo.kvbprimemtdc.com:33463",
+      "GCPdemodc.kvbprimemtdc.com:33462",
+      "ali88hk-demo.kvbprimemtdc.com:33464",
+      "iwscn-demo.kvbprimemtdc.com:33461",
+      "GCPJPdcmain-demo.kvbprimemtdc.com:33470"
+          ]
+  },
+
+  {
+    "labels": {
+      "platform": "88UK-Demo-DC-SERVER"
+    },
+    "targets": [
+      "dc.kvbprimemt.co.uk:33457"
+     ]
+  },
+
+  {
+    "labels": {
+      "platform": "88UK-Demo-UK-DC"
+    },
+    "targets": [
+      "gcpdc-demo.kvbprimemt.co.uk:33460",
+      "alieip62-demo.kvbprimemt.co.uk:33463"
+     ]
+  },
+
+{
+    "labels": {
+      "platform": "50-Demo-DC-SERVER"
+    },
+    "targets": [
+        "demodc.newsolid.com:33457",
+        "dchkgcp2.newsolid.com:33457"
+         ]
+  },
+
+{
+    "labels": {
+      "platform": "50-Demo-BJ-DC"
+    },
+    "targets": [
+      "azdcmain-demo.newsolid.com:33466",
+      "alieip50-demo.newsolid.com:33467",
+      "alieip50kr-demo.newsolid.com:33468"
+         ]
+  }
+
+]
