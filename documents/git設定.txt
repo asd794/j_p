@@ -1,3 +1,10 @@
+PowerShell
+    Get-Command ssh //查看ssh路徑
+    Get-Service ssh-agent | select -property Status,Name,DisplayName,Starttype  //查看ssh-agent狀態
+    Set-Service ssh-agent -StartupType Manual
+
+git config --global core.sshCommand "'C:/Windows/System32/OpenSSH/ssh.exe'"  
+
 git config --global user.name "Your Name"
 git config --global user.email you@example.com
 git config --list
