@@ -1,2 +1,8 @@
+jenkins
 docker run -itd --name jenkins --restart always -p 8080:8080 -p 50000:50000 -v /data/jenkins/:/var/jenkins_home/ jenkins/jenkins:lts
 
+jenkins_agent
+docker run -itd --rm --name agent -v /root/jar/agent.jar:/usr/share/jenkins/agent.jar --init jenkins/agent java -jar /usr/share/jenkins/agent.jar
+docker exec -it agent bash
+
+ 
