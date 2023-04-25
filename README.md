@@ -1,3 +1,3 @@
-# jinshi_practice
+# practice
 
 nothing
