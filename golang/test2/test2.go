@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"log"
+)
 
 func main() {
 	array := [3]int{5, 80, 22}
@@ -10,4 +13,10 @@ func main() {
 		fmt.Println(array[x])
 	}
 
+	num := []int{100, 99, 98}
+	for i, abc := range num {
+		log.Println(i, abc)
+		fmt.Println(i, abc)
+	}
+	log.SetFlags(1)
 }
