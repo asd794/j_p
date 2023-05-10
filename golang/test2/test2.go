@@ -6,6 +6,13 @@ import (
 )
 
 func main() {
+	var a = [10]int{}
+	for i := 0; i < 10; i++ {
+		a[i] = i + 1
+	}
+	fmt.Println(len(a))
+	fmt.Println(a)
+
 	array := [3]int{5, 80, 22}
 	fmt.Println(len(array))
 	fmt.Println(array)
