@@ -26,6 +26,7 @@ for i in range(2):
 y=0
 long=len("Hello")
 array=["none"]*long
+print(array)
 for i in "Hello":
     if i in array:
         y+=1
