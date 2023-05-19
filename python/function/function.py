@@ -14,6 +14,16 @@ def say(*msgs):
         print(i)
     return "緊張囉"
 
+def power(n1,n2=0):
+    print(n1**n2)
+
+def avg(*n):
+    sum=0
+    for i in n:
+        sum+=i
+    print(len(n),sum/len(n))
+
+
 value=add(2,1)
 print(value*2)
 add(n2=2,n1=1)
@@ -23,3 +33,7 @@ print(sum)
 
 print(say("說話",222,"HI"))
 
+power(2)
+power(2,10)
+
+avg(1,2,3,4)
