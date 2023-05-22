@@ -4,3 +4,4 @@ def s (*nums):
         sum+=i
     print(sum)
     return '你好啊55688'
+nihao=123
