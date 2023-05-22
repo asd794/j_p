@@ -8,3 +8,4 @@
 
 import modules2.sumsum as ccok
 print(ccok.sum(1,2,3))
+print(ccok.niaho)
