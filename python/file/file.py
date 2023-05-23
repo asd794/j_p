@@ -38,7 +38,7 @@ print(sum)
 abc='NLNLXD'
 print(re.sub('LN','',abc))
 
-with open("config.json",mode="r") as file:
+with open("config.json",mode="r",encoding="utf-8") as file:
     data=json.load(file)
 print("name",data["name"])
 print("version",data["version"])
