@@ -14,7 +14,6 @@ with open('test.txt' ,mode='r',encoding='utf-8') as test:
     for line in test:
         print(line)
 
-
 with open("data.txt",mode="w",encoding="utf-8") as file:
     file.write("1\n19\n30")
 array=[]
@@ -38,7 +37,13 @@ print(sum)
 abc='NLNLXD'
 print(re.sub('LN','',abc))
 
-with open("config.json",mode="r",encoding="utf-8") as file:
+with open("config.json",mode="r",encoding="utf-8") as file: # 讀取Json
     data=json.load(file)
-print("name",data["name"])
-print("version",data["version"])
+print("--------------------------")
+print(data) # 印出讀取後data資料
+print("name: ",data["name"])
+print("version: ",data["version"])
+data["name"]="劉柏園"
+print(data) # 印出data修改後資料
+with open('config.json' ,mode='w' ,encoding='utf-8') as file: # 寫入Json
+    json.dump(data,file)    #   將data資料寫回json檔案裡
