@@ -56,10 +56,10 @@ with req.urlopen(request2) as response:
     data2=response.read().decode("utf-8")
 root2=bs4.BeautifulSoup(data2,"html.parser")
 maincontent=root2.find("div",id="main-content") # 主要內容main-content
+
 fromptt=root2.find("span",class_="f2")
-# article_meta_value=root2.find("span",class_="article-meta-value")
 fromptt2=root2.find_all("span",class_="article-meta-value")
-# class_main_container=bs4.BeautifulSoup(content,"html.parser")
+
 
 print(len(str(fromptt2[3])+"</div>")) # 前面文字的長度
 print(str(maincontent).find(str(fromptt2[3])+"</div>")) # 前面文字的位置
