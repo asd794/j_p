@@ -81,5 +81,5 @@ for i in ppt_article_url_array:
     # print(content_array[yy])
     yy+=1
 
-print(content_array[13])
+print(content_array[4])
     
