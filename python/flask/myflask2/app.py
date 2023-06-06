@@ -80,10 +80,26 @@ def redirect2():
 def temp_index():
     return render_template("index.html",name='大壯')
 
-@app.route("/form")
+@app.route("/sum" ,methods=["POST"]) # 從/temp來
+def form2():
+    # number=request.args.get("max","") # 這是接收GET方法的Query String
+    number=request.form["max"] # 這是接收POST方法的Query String
+    result=0
+    if number=='':
+        return redirect('/temp')
+    else:
+        number=int(number)
+        for i in range(1,number+1):
+            result+=i
+        return render_template("result.html",sum=result)
+
+@app.route("/form") # 從/temp來
 def form():
     name=request.args.get("data","") # 對應index.html <input type="text" name="data"/> 的data
-    return '歡迎,'+name
+    if name=='':
+        return redirect('/temp')
+    else:
+        return '歡迎,'+name
 
 
 # 啟動網站伺服器
