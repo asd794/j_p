@@ -2,6 +2,7 @@ from flask import Flask #載入flask
 from flask import request #載入request物件
 from flask import redirect #載入redirect函式
 from flask import render_template #載入render_template函式
+from flask import session
 import json
 #建立Application物件
 app=Flask(
@@ -10,6 +11,9 @@ app=Flask(
     static_url_path="/" # 靜態檔案對應的網址路徑    
     ) 
 # 所有在static資料夾底下的檔案，都對應到網址路徑 /檔案名稱
+
+# 設定session密鑰
+app.secret_key="NLNLXD"
 
 # 建立路徑 / 對應的處理函式
 @app.route("/")
@@ -75,32 +79,34 @@ def redirect1():
 def redirect2():
     return redirect("https://www.google.com")
 
-# 建立路徑 /temp 對應的處理函式
-@app.route("/temp")
+# 建立路徑 /home 對應的處理函式
+@app.route("/home")
 def temp_index():
     return render_template("index.html",name='大壯')
-
-@app.route("/sum" ,methods=["POST"]) # 從/temp來
+@app.route("/sum" ,methods=["POST"]) # 從/home來,若不加methods=["POST"],預設為GET
 def form2():
     # number=request.args.get("max","") # 這是接收GET方法的Query String
     number=request.form["max"] # 這是接收POST方法的Query String
     result=0
     if number=='':
-        return redirect('/temp')
+        return redirect('/home')
     else:
         number=int(number)
         for i in range(1,number+1):
             result+=i
         return render_template("result.html",sum=result)
-
-@app.route("/form") # 從/temp來
+@app.route("/form") # 從/home來
 def form():
-    name=request.args.get("data","") # 對應index.html <input type="text" name="data"/> 的data
+    name=request.args.get("name","") # 對應index.html <input type="text" name="name"/> 的data
+    session["username"]=name # seesion["欄位名稱"]=資料,name存放到session
     if name=='':
-        return redirect('/temp')
+        return redirect('/home')
     else:
         return '歡迎,'+name
+@app.route("/talk")
+def test_session():
+    return session["username"]
 
 
 # 啟動網站伺服器
-app.run(port=3000)
+app.run(port=3000,debug=True)
