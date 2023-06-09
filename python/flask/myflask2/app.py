@@ -98,7 +98,7 @@ def form2():
 @app.route("/form") # 從/home來
 def form():
     name=request.args.get("name","") # 對應index.html <input type="text" name="name"/> 的data
-    session["username"]=name # seesion["欄位名稱"]=資料,name存放到session
+    session["username"]=name # session["欄位名稱"]=資料,name存放到session
     if name=='':
         return redirect('/home')
     else:
