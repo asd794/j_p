@@ -1,0 +1,13 @@
+import urllib.request as req
+import json
+
+src='https://tw.rter.info/capi.php'
+
+request=req.Request(src,headers={
+    "User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36"
+})
+
+with req.urlopen(request) as response:
+    data=json.load(response)
+print(data['USDTWD']['Exrate'])
+
