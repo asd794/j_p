@@ -1,9 +1,15 @@
+# import sys
+# sys.path.append("/home/ubuntu/.local/lib/python3.10/site-packages") AWS機器
+
 from pymongo.mongo_client import MongoClient
 uri = "mongodb+srv://weichih:wtVDTbr4azrGa46E@cluster0.9qo8cqy.mongodb.net/?retryWrites=true&w=majority"
 # Create a new client and connect to the server
 client = MongoClient(uri)
-
 from flask import *
+from flask_bcrypt import Bcrypt #匯入flask-bcrypt 套件
+bcrypt=Bcrypt() # 建立Bcrypt實體並指定給變數bcrypt
+
+
 
 app=Flask(
     __name__,
@@ -44,11 +50,12 @@ def signup():
     # 根據接收的資料與資料庫互動
     db=client.myweb
     collection=db.users
+    hashed_password=bcrypt.generate_password_hash(password=password) # 雜湊函數加密密碼
     if collection.find_one({"email":email})==None: # 檢查email是否空值None,是空值就新增到資料庫
         collection.insert_one({
             "nickname":nickname,
             "email":email,
-            "password":password
+            "password":hashed_password
         })
         return redirect("/")
     else: # 不是空值傳Query String到error.html報錯
@@ -62,19 +69,33 @@ def signin():
     passowrd=request.form["password"]
     db=client.myweb
     collection=db.users
-    result=collection.find_one({
-        "$and":[
-            {"email":email},
-            {"password":passowrd}
-        ]
-    })
-    if result==None:
-        return redirect("/error?msg=帳密輸入錯誤")
+    db_check=collection.find_one({"email":email}) 
+    print(db_check)
+    if db_check != None:
+        check_password=bcrypt.check_password_hash(db_check['password'],passowrd) # 雜湊密碼比對
+        if check_password ==True:
+            session['nickname']=db_check['nickname']
+            session['email']=email
+            return redirect("/member")
+        else:
+            return redirect("/error?msg=帳密輸入錯誤")
     else:
-        session['nickname']=result['nickname']
-        session['email']=email
-        # print(session['nickname'])
-        return redirect("/member")
+        return redirect("/error?msg=帳密輸入錯誤")
+    
+    # result=collection.find_one({
+    #     "$and":[
+    #         {"email":email},
+    #         {"password":passowrd}
+    #     ]
+    # })
+    # print(result)
+    # if result==None:
+    #     return redirect("/error?msg=帳密輸入錯誤")
+    # else:
+    #     session['nickname']=result['nickname']
+    #     session['email']=email
+    #     # print(session['nickname'])
+    #     return redirect("/member")
     
 # 會員登出
 @app.route("/signout")
