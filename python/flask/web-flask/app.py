@@ -1,5 +1,5 @@
 # import sys
-# sys.path.append("/home/ubuntu/.local/lib/python3.10/site-packages") AWS機器
+# sys.path.append("/home/ubuntu/.local/lib/python3.10/site-packages") # AWS機器
 
 from pymongo.mongo_client import MongoClient
 uri = "mongodb+srv://weichih:wtVDTbr4azrGa46E@cluster0.9qo8cqy.mongodb.net/?retryWrites=true&w=majority"
