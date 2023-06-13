@@ -9,5 +9,5 @@ request=req.Request(src,headers={
 
 with req.urlopen(request) as response:
     data=json.load(response)
-print(data['USDTWD']['Exrate'])
+print(data['USDTWD'])
 
