@@ -22,5 +22,5 @@ def ng():
     return render_template('navigation.html')
 
 if __name__=="__main__": # 如果以主程式執行
-    app.run(host='0.0.0.0', port='5555', debug=True) # 立即啟動伺服器，debug=True 網站執行中修改檔案，會自動重新啟動網站
+    app.run(host='0.0.0.0', port='80', debug=True) # 立即啟動伺服器，debug=True 網站執行中修改檔案，會自動重新啟動網站
 
