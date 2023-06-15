@@ -109,4 +109,5 @@ def test_session():
 
 
 # 啟動網站伺服器
-app.run(port=3000,debug=True)
+if __name__ == '__main__':
+    app.run(port=3000,debug=True)

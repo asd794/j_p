@@ -104,5 +104,10 @@ def signout():
     session.clear()
     print(session)
     return redirect("/")
+
+@app.route('/kvb')
+def kvb():
+    return redirect("https://tw.google.com")
+
 if __name__=='__main__':
     app.run(host='0.0.0.0',port=80)
