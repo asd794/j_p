@@ -7,9 +7,10 @@ class Vendor(models.Model):
     store_name=models.CharField(max_length=10) # 攤販店家的名稱
     phone_number=models.CharField(max_length=20) # 攤販的電話號碼
     address=models.CharField(max_length=100) # 攤販的地址
+    # primary_key=True
     
     def __str__(self):
-        return self.vendor_name
+        return self.vendor_name # 去資料庫查資料原本回傳<Vendor: Vendor object (1)> 變成 <Vendor: Alex>
 
 
 class Food(models.Model):
@@ -43,4 +44,7 @@ class FoodAdmin(admin.ModelAdmin):
     list_display = [field.name for field in Food._meta.fields]
     # list_display = ['id', 'food_name', 'price_name', 'food_vendor'] # 等於上面那行
     list_filter=(Morethanfifty,) # 過濾 price_name
+    # fields=['price_name'] # 只能修改 price_name # 等於 exclude=['food_name', 'food_vendor']
+    search_fields=('food_name','price_name') # 搜尋欄位
+    ordering=('price_name',) # 預設顯示價格小到大排序 # 大到小 ordering = ('-price_name',)
 
