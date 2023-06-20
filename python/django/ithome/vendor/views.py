@@ -4,4 +4,18 @@ from .models import Vendor
 def vendor_index(request):
     vendor_list=Vendor.objects.all()
     context={'vendor_list':vendor_list}
-    return render(request,'test.html',context)
+    return render(request,'vendors/vendor_detail.html',context)
+
+from .forms import VendorForm # 要記得 import 相對應的 Model Form 唷!
+
+# 針對 vendor_create.html
+def vendor_create_view(request):
+    form = VendorForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        form=VendorForm() # 清出Form
+
+    context = {
+        'form' : form
+    }
+    return render(request, "vendors/vendor_create.html", context)
