@@ -1,0 +1,9 @@
+# ERROR 1820 (HY000): You must reset your password using ALTER USER statement before executing this statement
+alter user 'root'@'localhost' identified by '123456';
+
+# 允許全部IP連線
+mysql>use mysql;
+mysql>update user set host = '%'  where user ='root';
+mysql>flush privileges;
+mysql>select 'host','user' from user where user='root';
+mysql>quit
