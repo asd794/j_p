@@ -62,7 +62,7 @@ def signup():
         return redirect("/error?msg=信箱已經被註冊")
         # return render_template("error.html",msg="信箱已經被註冊了")
 
-# 處理會員登入
+# 處理會員登入 MongoDB
 @app.route("/signin" ,methods=["post"])
 def signin():
     email=request.form["email"]
