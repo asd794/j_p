@@ -13,5 +13,5 @@ git init
 git add .
 git commit -m "??"
 
-git remote add orgin git@github.com:asd794/jinshi_practice.git
+git remote add orgin git@github.com:asd794/j_p.git
 git push origin main
