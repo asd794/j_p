@@ -1,0 +1,34 @@
+body{
+    background-color:blanchedalmond;
+}
+.content{
+    border-style: solid;
+    border-color: green;
+    border-width: 2px;
+}
+.frame{
+    display: flex; /* 讓項目水平排列 */
+    border-style: solid;
+}
+.left{
+    background-color: purple;
+    /* width: 50%; */
+    /* flex: none; 固定配置   */
+    flex: auto; /*剩下空間補滿*/
+    display: flex;
+    justify-content: flex-end;
+}
+.right{
+    background-color: orange;
+    width: 30%;
+
+}
+.item{
+    background-color:rgb(82, 198, 224) ;
+    /* flex: auto; */
+    margin-right: 10px;
+    margin-left: 10px;
+    /* width: 33%; */
+    text-align: center;
+
+}
