@@ -9,18 +9,19 @@
 <body>
     <div class="login-box">
         <h2>登入</h2>
-        <form>
+        <form action="/signin" method="post">
           <div class="user-box">
-            <input type="text" name="account"  method="post">
+            <input type="text" name="account">
             <label>帳號</label>
           </div>
           <div class="user-box">
-            <input type="password" name="password" method="post" >
+            <input type="password" name="password">
             <label>密碼</label>
           </div>
-          <a href="https://www.google.com">登入</a>
+          <!-- <a href="https://www.google.com">登入</a> -->
+          <button>登入</button>
         </form>
-        <a href="/register">註冊</a>
+        <a href="/register">立即註冊</a>
         <!-- <form action="">
             <button>123</button>
         </form> -->

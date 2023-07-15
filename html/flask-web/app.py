@@ -21,18 +21,18 @@ app.secret_key="secret key for flask test"
 # 登入首頁
 @app.route("/")
 def index():
-    return render_template("t1.html")
+    return render_template("login.html")
 # 註冊頁面
 @app.route("/register")
 def register():
-    return render_template("t2.html")
+    return render_template("register.html")
 
 
 # 會員頁面
 @app.route("/member")
 def member():
     if "account" in session:
-        return render_template("member.html",nickname=session['account'])
+        return render_template("member.html",account=session['account'],email=session['email'])
     else:
         return redirect("/")
 
@@ -70,18 +70,21 @@ def signup():
 # 處理會員登入 MongoDB
 @app.route("/signin" ,methods=["post"])
 def signin():
-    email=request.form["email"]
+    account=request.form["account"]
     passowrd=request.form["password"]
     db=client.myweb
     collection=db.users
-    db_check=collection.find_one({"email":email}) 
+    db_check=collection.find_one({"account":account}) 
     print(db_check)
+    print(db_check['email'])
+    print(account)
     if db_check != None:
         check_password=bcrypt.check_password_hash(db_check['password'],passowrd) # 雜湊密碼比對
         if check_password ==True:
-            session['nickname']=db_check['nickname']
-            session['email']=email
+            session['email']=db_check['email']
+            session['account']=account
             return redirect("/member")
+            # return session['email']+session['account']
         else:
             return redirect("/error?msg=帳密輸入錯誤")
     else:
@@ -105,7 +108,8 @@ def signin():
 # 會員登出
 @app.route("/signout")
 def signout():
-    del session["nickname"]
+    del session["email"]
+    del session["account"]
     session.clear()
     print(session)
     return redirect("/")
