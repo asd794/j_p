@@ -105,7 +105,7 @@ def signin():
     #     # print(session['nickname'])
     #     return redirect("/member")
     
-# 會員登出
+# 會員登出 清除session
 @app.route("/signout")
 def signout():
     del session["email"]
