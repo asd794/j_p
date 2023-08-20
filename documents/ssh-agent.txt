@@ -1,2 +1,18 @@
 ssh-keygen -b 8192 -C 'home_weichih'
+
+將金鑰加入到ssh裡面使用
 ssh-add C:\Users\jay87\.ssh\weichih_home
+
+
+有時候會顯示
+PS E:\practice\j_p> git pull
+git@github.com: Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+可以執行
+Set-Service -StartupType Automatic ssh-agent
+Start-Service ssh-agent
+Get-Service ssh-agent

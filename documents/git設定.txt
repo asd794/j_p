@@ -15,3 +15,17 @@ git commit -m "??"
 
 git remote add orgin git@github.com:asd794/j_p.git
 git push origin main
+
+
+有時候會顯示
+PS E:\practice\j_p> git pull
+git@github.com: Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+可以執行
+Set-Service -StartupType Automatic ssh-agent
+Start-Service ssh-agent
+Get-Service ssh-agent
